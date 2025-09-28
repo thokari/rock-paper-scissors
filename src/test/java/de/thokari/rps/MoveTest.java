@@ -14,7 +14,7 @@ public class MoveTest {
 
         // Expect: ROCK beats SCISSORS
         Assertions.assertEquals(1, Move.ROCK.compare(Move.SCISSORS));
-        // Expect: ROCK beaten by PAPER
+        // Expect: SCISSORS beaten by ROCK
         Assertions.assertEquals(-1, Move.SCISSORS.compare(Move.ROCK));
 
         // Expect: SCISSORS beats PAPER
