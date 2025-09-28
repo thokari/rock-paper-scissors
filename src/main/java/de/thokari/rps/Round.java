@@ -14,7 +14,7 @@ public class Round {
     }
 
     public int getResult() {
-        return p1Move.compareTo(p2Move);
+        return p1Move.compare(p2Move);
     }
 
     @Override

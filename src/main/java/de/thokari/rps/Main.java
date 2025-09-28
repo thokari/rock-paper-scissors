@@ -2,7 +2,7 @@ package de.thokari.rps;
 
 import java.util.List;
 
-public class Main {
+public class  Main {
     public static void main(String[] args) {
 
         int numRounds = 100;
@@ -37,7 +37,7 @@ public class Main {
             System.out.println(round);
             if (round.result == 1) {
                 player1Wins++;
-            } else if (round.result == 2) {
+            } else if (round.result == -1) {
                 player2Wins++;
             } else {
                 draws++;
