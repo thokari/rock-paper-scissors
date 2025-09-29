@@ -28,12 +28,8 @@ public interface Player {
 
         @Override
         public Move nextMove() {
-            int r = rng.nextInt(3);
-            return switch (r) {
-                case 0 -> Move.ROCK;
-                case 1 -> Move.PAPER;
-                default -> Move.SCISSORS;
-            };
+            int r = rng.nextInt(Move.values().length);
+            return Move.values()[r];
         }
     }
 }

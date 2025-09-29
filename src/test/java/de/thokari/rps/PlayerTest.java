@@ -1,10 +1,12 @@
 package de.thokari.rps;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static de.thokari.rps.Move.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -16,7 +18,7 @@ public class PlayerTest {
         for (int i = 1; i <= 100; i++) {
             Move move = alwaysPaper.nextMove();
             // Then
-            Assertions.assertEquals(Move.PAPER, move);
+            assertEquals(PAPER, move);
         }
     }
 
@@ -27,16 +29,16 @@ public class PlayerTest {
         Player randomPlayer = new Player.RandomMove(rngSeed);
         List<Move> moves = new ArrayList<>();
         List<Move> expectedMoves = List.of(
-                Move.ROCK, Move.PAPER, Move.PAPER, Move.ROCK, Move.SCISSORS,
-                Move.PAPER, Move.SCISSORS, Move.PAPER, Move.PAPER, Move.PAPER,
-                Move.PAPER, Move.PAPER, Move.PAPER, Move.ROCK, Move.ROCK,
-                Move.PAPER, Move.SCISSORS, Move.ROCK, Move.ROCK, Move.SCISSORS
+                ROCK, PAPER, PAPER, ROCK, SCISSORS,
+                PAPER, SCISSORS, PAPER, PAPER, PAPER,
+                PAPER, PAPER, PAPER, ROCK, ROCK,
+                PAPER, SCISSORS, ROCK, ROCK, SCISSORS
         );
         // When
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= expectedMoves.size(); i++) {
             moves.add(randomPlayer.nextMove());
         }
         // Then
-        Assertions.assertEquals(expectedMoves, moves);
+        assertEquals(expectedMoves, moves);
     }
 }

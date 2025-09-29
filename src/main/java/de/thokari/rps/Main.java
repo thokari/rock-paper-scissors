@@ -2,7 +2,10 @@ package de.thokari.rps;
 
 import java.util.List;
 
-public class  Main {
+import static de.thokari.rps.Round.Result.P1_WINS;
+import static de.thokari.rps.Round.Result.P2_WINS;
+
+public class Main {
     public static void main(String[] args) {
 
         int numRounds = 100;
@@ -35,15 +38,15 @@ public class  Main {
         int draws = 0;
         for (Round round : rounds) {
             System.out.println(round);
-            if (round.result == 1) {
+            if (round.result == P1_WINS) {
                 player1Wins++;
-            } else if (round.result == -1) {
+            } else if (round.result == P2_WINS) {
                 player2Wins++;
             } else {
                 draws++;
             }
         }
         System.out.println("-----------------------------------\n"
-                + "P1: " + player1Wins + " " + "P2: " + player2Wins + " " + "Draws: " + draws);
+                + "P1_WINS: " + player1Wins + ", " + "P2_WINS: " + player2Wins + ", " + "DRAWS: " + draws);
     }
 }

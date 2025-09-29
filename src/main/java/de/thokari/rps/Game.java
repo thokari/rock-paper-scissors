@@ -21,7 +21,7 @@ public class Game {
         for (int i = 0; i < numRounds; i++) {
             Move p1Move = p1.nextMove();
             Move p2Move = p2.nextMove();
-            rounds.add(new Round(p1Move, p2Move));
+            rounds.add(new Round(p1Move, p2Move).play());
         }
         return rounds;
     }

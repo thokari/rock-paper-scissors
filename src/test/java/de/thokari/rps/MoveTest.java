@@ -1,25 +1,20 @@
 package de.thokari.rps;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static de.thokari.rps.Move.*;
+import static de.thokari.rps.Round.Result.P1_WINS;
+import static de.thokari.rps.Round.Result.P2_WINS;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoveTest {
 
     @Test
     public void paperBeatsRockBeatsScissorsBeatsPaper() {
-        // Expect: PAPER beats ROCK
-        Assertions.assertEquals(1, Move.PAPER.compare(Move.ROCK));
-        // Expect: ROCK beaten by PAPER
-        Assertions.assertEquals(-1, Move.ROCK.compare(Move.PAPER));
-
-        // Expect: ROCK beats SCISSORS
-        Assertions.assertEquals(1, Move.ROCK.compare(Move.SCISSORS));
-        // Expect: SCISSORS beaten by ROCK
-        Assertions.assertEquals(-1, Move.SCISSORS.compare(Move.ROCK));
-
-        // Expect: SCISSORS beats PAPER
-        Assertions.assertEquals(1, Move.SCISSORS.compare(Move.PAPER));
-        // Expect: PAPER beaten by SCISSORS
-        Assertions.assertEquals(-1, Move.PAPER.compare(Move.SCISSORS));
+        assertEquals(P1_WINS, PAPER.versus(ROCK));
+        assertEquals(P2_WINS, ROCK.versus(PAPER));
+        assertEquals(P1_WINS, ROCK.versus(SCISSORS));
+        assertEquals(P2_WINS, SCISSORS.versus(ROCK));
+        assertEquals(P1_WINS, SCISSORS.versus(PAPER));
+        assertEquals(P2_WINS, PAPER.versus(SCISSORS));
     }
 }
